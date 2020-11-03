@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-03T18:45:16 BDT" name="Default suite" finished-at="2020-11-03T18:45:56 BDT" duration-ms="39831">
+  <suite started-at="2020-11-03T21:47:20 BDT" name="Default suite" finished-at="2020-11-03T21:47:45 BDT" duration-ms="25232">
     <groups>
     </groups>
-    <test started-at="2020-11-03T18:45:16 BDT" name="Default test" finished-at="2020-11-03T18:45:56 BDT" duration-ms="39831">
-      <class name="pages.checkOut">
-        <test-method is-config="true" signature="setUpTest()[pri:0, instance:pages.checkOut@6ff29830]" started-at="2020-11-03T18:45:16 BDT" name="setUpTest" finished-at="2020-11-03T18:45:26 BDT" duration-ms="9931" status="PASS">
+    <test started-at="2020-11-03T21:47:20 BDT" name="Default test" finished-at="2020-11-03T21:47:45 BDT" duration-ms="25232">
+      <class name="pages.testPage">
+        <test-method is-config="true" signature="setUpTest()[pri:0, instance:pages.testPage@6ff29830]" started-at="2020-11-03T21:47:20 BDT" name="setUpTest" finished-at="2020-11-03T21:47:32 BDT" duration-ms="12040" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
-        <test-method signature="searchProduct()[pri:1, instance:pages.checkOut@6ff29830]" started-at="2020-11-03T18:45:26 BDT" name="searchProduct" finished-at="2020-11-03T18:45:56 BDT" duration-ms="29859" status="PASS">
+        <test-method signature="aboutDelivery()[pri:1, instance:pages.testPage@6ff29830]" started-at="2020-11-03T21:47:32 BDT" name="aboutDelivery" finished-at="2020-11-03T21:47:45 BDT" duration-ms="13151" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchProduct -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:pages.checkOut@6ff29830]" started-at="2020-11-03T18:45:56 BDT" name="tearDown" finished-at="2020-11-03T18:45:56 BDT" duration-ms="1" status="PASS">
+        </test-method> <!-- aboutDelivery -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:pages.testPage@6ff29830]" started-at="2020-11-03T21:47:45 BDT" name="tearDown" finished-at="2020-11-03T21:47:45 BDT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- pages.checkOut -->
+      </class> <!-- pages.testPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -328,7 +328,13 @@ public class Tron_Homepage {
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://blog.espares.co.uk/" );
 	}
-
+	//	blog link verification
+	@Test(priority=33)
+	public void blog() {
+		driver.findElement(By.xpath("//body/div[6]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]/i[1]")).click();
+		String URL = driver.getCurrentUrl();
+		Assert.assertEquals(URL, "https://blog.espares.co.uk/" );
+	}
 
 
 	@AfterMethod
