@@ -199,7 +199,8 @@ public class Tron_Homepage {
 
 	//	aboutDelivery link verification
 	@Test(priority=19)
-	public void aboutDelivery() {
+	public void aboutDelivery() throws InterruptedException {
+		Thread.sleep(8000);
 		driver.findElement(By.linkText("About Delivery")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/aboutdelivery" );
@@ -207,7 +208,8 @@ public class Tron_Homepage {
 
 	//	returnsRefunds link verification
 	@Test(priority=20)
-	public void returnsRefunds() {
+	public void returnsRefunds() throws InterruptedException {
+		Thread.sleep(8000);
 		driver.findElement(By.linkText("Returns & Refunds")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/returns" );

@@ -21,7 +21,7 @@ public class testPage {
 		driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get("https://www.tron.espares.co.uk");
+		driver.get("https://www.espares.co.uk");
 		driver.findElement(By.id("btn-allow-all")).click();
 
 	}
@@ -29,10 +29,11 @@ public class testPage {
 
 	//	aboutDelivery link verification
 	@Test(priority=1)
-	public void aboutDelivery() {
+	public void aboutDelivery() throws InterruptedException {
+		Thread.sleep(8000);
 		driver.findElement(By.xpath("//a[contains(text(),'About Delivery')]")).click();
 		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/aboutdelivery" );
+		Assert.assertEquals(URL, "https://www.espares.co.uk/aboutdelivery" );
 	}
 
 
