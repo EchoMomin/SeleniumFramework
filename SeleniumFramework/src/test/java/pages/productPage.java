@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class productPage {
 	WebDriver driver;
-
+//before
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
