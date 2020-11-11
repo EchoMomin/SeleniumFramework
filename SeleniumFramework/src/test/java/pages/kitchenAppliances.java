@@ -43,7 +43,7 @@ public class kitchenAppliances {
 		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div[2]/ul/li[1]/a/span")).click();
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "Buy Spare Parts for your Blender, Mixer or Juicer | eSpares | eSpares");
-		//Click on 
+		//Capture title of Universal 25W E14 Oven Bulb
 //		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div/ul/li[1]/a/div/img")).click();
 //		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section/ul/li[1]/div[1]/div[3]/div/form/button")).click();
 		
