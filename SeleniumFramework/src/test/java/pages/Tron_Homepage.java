@@ -55,7 +55,7 @@ public class Tron_Homepage {
 	//Verify tron washersDryers link
 	@Test(priority=4)
 	public void washersDryers() {
-
+		
 		driver.findElement(By.xpath("//header/div[4]/nav[1]/div[1]/ul[1]/li[4]/a[1]")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/browse/ca1236/washers-and-dryers" );
