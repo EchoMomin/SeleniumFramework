@@ -50,11 +50,13 @@ public class checkOut {
 		driver.findElement(By.cssSelector("div.easy-number-wrapper>button:last-of-type")).click();
 		//Click on buy now button
 		driver.findElement(By.cssSelector("input.btn.btn-primary.shoppingCartTrack")).click();
+		Thread.sleep(8000);
 		String baskettTitle = driver.getTitle();
 		Assert.assertEquals(baskettTitle,"Basket | eSpares");
 
 		//Click to checkout Securely
-		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div/div[1]/div[2]/form/button")).click();
+		driver.findElement(By.cssSelector("form>button.btn.btn-primary.btn-secure.btn-wide:first-of-type ")).click();
+
 		String checkoutTitle = driver.getTitle();
 		Assert.assertEquals(checkoutTitle,"Checkout | eSpares");
 
@@ -88,18 +90,16 @@ public class checkOut {
 		String PDTitle = driver.getTitle();
 		Assert.assertEquals(PDTitle,"Payment Details | eSpares");
 		//		Thread.sleep(8000);
-		//		//Card number
-		//		driver.findElement(By.id("CardNumber")).sendKeys("4008180000113823");
-		//		// select EndDateYear
-		//		new Select (driver.findElement(By.id("EndDateYear"))).selectByVisibleText("2022");
-		//		//Security Code
-		//		driver.findElement(By.id("SecurityCode")).sendKeys("123");
-		//		//TermsAndConditionsAgreed 
-		//		driver.findElement(By.id("TermsAndConditionsAgreed")).click();
-		//		//Place order
-		//		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div[1]/section[2]/form/div[6]/div/button[2]")).click();
-
-
+		//		Card number
+		driver.findElement(By.id("CardNumber")).sendKeys("4008180000113823");
+		// select EndDateYear
+		new Select (driver.findElement(By.id("EndDateYear"))).selectByVisibleText("2022");
+		//Security Code
+		driver.findElement(By.id("SecurityCode")).sendKeys("123");
+		//TermsAndConditionsAgreed 
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div[1]/section[2]/form/div[5]/div/label/div")).click();
+			//Place order
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div[1]/section[2]/form/div[6]/div/button[2]")).click();
 
 	}
 

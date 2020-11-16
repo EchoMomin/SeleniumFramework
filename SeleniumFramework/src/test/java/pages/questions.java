@@ -44,7 +44,7 @@ public class questions {
 		Assert.assertEquals(title, "Ask a Question | eSpares");
 		driver.findElement(By.name("action")).click();
 		String submitTitle=driver.getTitle();
-		Assert.assertEquals(submitTitle, "Thank you | eSpar");
+		Assert.assertEquals(submitTitle, "Thank you | eSpares");
 	}
 
 

@@ -1,17 +1,17 @@
 package pages;
-import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-
-public class washersDryers {
+public class vacuums {
 	WebDriver driver;
 
 	@BeforeMethod
@@ -27,41 +27,45 @@ public class washersDryers {
 		alert.accept();
 		driver.findElement(By.id("btn-allow-all")).click();
 
-	}
-
-
+}
+	
+	
+	
 	@Test(priority=1)
-	public void washersUrl() throws InterruptedException {
-		//Click on Washers & Dryers tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[4]/a")).click();
+	public void VacuumsUrl() throws InterruptedException {
+		//Click on Vacuums tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[5]/a")).click();
 		Thread.sleep(8000);
 		driver.findElement(By.id("btn-allow-all")).click();
 		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/browse/ca1236/washers-and-dryers" );	
+		Assert.assertEquals(URL, "https://www.espares.co.uk/browse/ca1237/vacuums-and-floorcare" );	
 
 	}
 	@Test(priority=2)
-	public void washersCategroyTitle() throws InterruptedException {
-		//Click on Washers & Dryers tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[4]/a")).click();
+	public void vacuumsCategroyTitle() throws InterruptedException {
+		//Click on Vacuums tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[5]/a")).click();
 		Thread.sleep(8000);
 		driver.findElement(By.id("btn-allow-all")).click();
-		//Click on Tumble Dryers Categories
-		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div[2]/ul/li[1]/a/div[1]/img")).click();
+		//Click on one of Our Appliance Types
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[2]/div[2]/ul/li[2]/a/div[1]/img")).click();
 		String title=driver.getTitle();
-		Assert.assertEquals(title, "Buy Tumble Dryer Spares, Parts & Accessories | Belts, Thermostats and More | eSpares | eSpares");
+		Assert.assertEquals(title, "Vacuums & Floorcare > New Vacuum Cleaners | eSpares");
 	}
 	@Test(priority=3)
 	public void priceCompare() throws InterruptedException {
-		//Click on Washers & Dryers tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[4]/a")).click();
-		Thread.sleep(8000);
+		//Click on Vacuums tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[5]/a")).click();
+		Thread.sleep(5000);
 		driver.findElement(By.id("btn-allow-all")).click();
-		//Click on Tumble Dryers Categories
+		Thread.sleep(5000);
+		//Click on one of Our Appliance Types
+		driver.findElement(By.xpath("//*[@id=\\\"main-content\\\"]/div[2]/div/section[2]/div[2]/ul/li[2]/a/div[1]/img")).click();
+		// click on one of the Browse Our Categories 
 		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div[2]/ul/li[1]/a/div[1]/img")).click();
 		//compare price
-		String price=driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[3]/div[2]/article[1]/div[2]/footer/p")).getText();
-		Assert.assertEquals(price,"£6.99");
+		String price=driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[3]/div[2]/article[1]/div[2]/p[2]/span/span[2]")).getText();
+		Assert.assertEquals(price,"£4.49");
 	}
 	@AfterMethod
 	public void tearDown() {

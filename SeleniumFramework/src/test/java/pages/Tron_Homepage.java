@@ -133,7 +133,7 @@ public class Tron_Homepage {
 		driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
 		driver.findElement(By.id("subscribe-name")).sendKeys("Abdel");
 		driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//input[@id='']")).click();
+		driver.findElement(By.xpath("//*[@id=\"EmailSignupForm\"]/div[2]/span[1]/input")).click();
 	}
 
 
@@ -236,7 +236,7 @@ public class Tron_Homepage {
 	//modelNumberFinder link verification
 	@Test(priority=23)
 	public void modelNumberFinder() {
-		driver.findElement(By.linkText("Model Number Finder")).click();
+		driver.findElement(By.xpath("//*[@id=\"footer-collapse-2\"]/ul/li[3]/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/findingmodelnumbers" );
 	}
@@ -291,7 +291,7 @@ public class Tron_Homepage {
 	//	everythingYouEver link verification
 	@Test(priority=29)
 	public void everythingYouEver() {
-		driver.findElement(By.linkText("Everything you ever")).click();
+		driver.findElement(By.xpath("//*[@id=\"footer-collapse-4\"]/p/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.tron.espares.co.uk/aboutus" );
 	}
@@ -299,7 +299,7 @@ public class Tron_Homepage {
 	//	FB link verification
 	@Test(priority=30)
 	public void fb() {
-		driver.findElement(By.xpath("//body/div[5]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]/i[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[1]/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.facebook.com/fixityourself" );
 	}
@@ -308,7 +308,7 @@ public class Tron_Homepage {
 	//	twitter link verification
 	@Test(priority=31)
 	public void twitter() {
-		driver.findElement(By.xpath("//body/div[6]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/span[1]/i[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[2]/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://twitter.com/espares" );
 	}
@@ -316,7 +316,7 @@ public class Tron_Homepage {
 	//	youTube link verification
 	@Test(priority=32)
 	public void youTube() {
-		driver.findElement(By.xpath("//body/div[6]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]/i[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[3]/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://www.youtube.com/user/eSparesVideo" );
 	}
@@ -324,17 +324,11 @@ public class Tron_Homepage {
 	//	blog link verification
 	@Test(priority=33)
 	public void blog() {
-		driver.findElement(By.xpath("//body/div[6]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]/i[1]")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[4]/a")).click();
 		String URL = driver.getCurrentUrl();
 		Assert.assertEquals(URL, "https://blog.espares.co.uk/" );
 	}
-	//	blog link verification
-//	@Test(priority=33)
-//	public void blog() {
-//		driver.findElement(By.xpath("//body/div[6]/footer[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[4]/a[1]/span[1]/i[1]")).click();
-//		String URL = driver.getCurrentUrl();
-//		Assert.assertEquals(URL, "https://blog.espares.co.uk/" );
-//	}
+
 
 
 	@AfterMethod
