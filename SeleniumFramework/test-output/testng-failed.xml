@@ -3,13 +3,40 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pages.checkOut">
+      <class name="pages.allBrands">
         <methods>
+          <include name="sound"/>
           <include name="setUpTest"/>
+          <include name="clickH"/>
+          <include name="clickN"/>
+          <include name="clickM"/>
+          <include name="clickD"/>
+          <include name="clickK"/>
+          <include name="clickJ"/>
+          <include name="heroes"/>
+          <include name="clickI"/>
+          <include name="vacuums"/>
+          <include name="fittingTools"/>
+          <include name="clickL"/>
+          <include name="kitchenAppliances"/>
+          <include name="offers"/>
           <include name="tearDown"/>
-          <include name="searchProduct"/>
+          <include name="cleaningProducts"/>
+          <include name="fixFirst"/>
+          <include name="clickG"/>
+          <include name="clickF"/>
+          <include name="clickE"/>
+          <include name="covid19"/>
+          <include name="homeOffice"/>
+          <include name="clickC"/>
+          <include name="clickB"/>
+          <include name="clickA"/>
+          <include name="washers"/>
+          <include name="applianceRecalls"/>
+          <include name="click3"/>
+          <include name="garden"/>
         </methods>
-      </class> <!-- pages.checkOut -->
+      </class> <!-- pages.allBrands -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

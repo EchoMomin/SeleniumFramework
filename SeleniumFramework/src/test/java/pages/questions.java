@@ -28,7 +28,7 @@ public class questions {
 		driver.findElement(By.id("btn-allow-all")).click();
 
 	}
-	//search product
+	//Ask a question
 	@Test
 	public void askQuestion() throws InterruptedException {
 		//Search a product by name

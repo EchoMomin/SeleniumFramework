@@ -1,4 +1,3 @@
-
 package pages;
 
 import java.util.concurrent.TimeUnit;
@@ -12,7 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class cleaning {
+public class homeOffice {
 	WebDriver driver;
 
 	@BeforeMethod
@@ -33,39 +32,39 @@ public class cleaning {
 	
 	
 	@Test(priority=1)
-	public void cleaningUrl() throws InterruptedException {
-		//Click on cleaning tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[7]/a")).click();
+	public void gardenUrl() throws InterruptedException {
+		//Click on garden tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[6]/a")).click();
 		Thread.sleep(8000);
 		driver.findElement(By.id("btn-allow-all")).click();
 		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/browse/ca1421/cleaning-products" );	
+		Assert.assertEquals(URL, "https://www.espares.co.uk/browse/ca7/garden-and-outdoor" );	
 
 	}
 	@Test(priority=2)
-	public void cleaningCategroyTitle() throws InterruptedException {
-		//Click on cleaning tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[7]/a")).click();
+	public void gardenCategroyTitle() throws InterruptedException {
+		//Click on garden tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[6]/a")).click();
 		Thread.sleep(8000);
 		driver.findElement(By.id("btn-allow-all")).click();
-		//Click on 1st image of Browse Our Categories
-		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div[2]/ul/li[1]/a/div[1]/img")).click();
+		//Click on one of Garden and Outdoor Appliances product photo
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/section[1]/div[2]/ul/li[1]/a/img")).click();
 		String title=driver.getTitle();
-		Assert.assertEquals(title, "Cleaning Products > All Purpose Cleaning | eSpares");
+		Assert.assertEquals(title, "Lawnmower Spare Part & Accessories | blades, bolts, power cables and more | eSpares | eSpares");
 	}
 	@Test(priority=3)
 	public void priceCompare() throws InterruptedException {
-		//Click on cleaning tab
-		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[7]/a")).click();
+		//Click on garden tab
+		driver.findElement(By.xpath("/html/body/header/div[4]/nav/div/ul/li[6]/a")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.id("btn-allow-all")).click();
 		Thread.sleep(5000);
-		//Click on 1st image of Browse Our Categories
-		driver.findElement(By.xpath("//*[@id=\\\"main-content\\\"]/div[2]/div/section[1]/div[2]/ul/li[1]/a/div[1]/img")).click();
-		// click on the 1st product name
-		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section/ul/li[1]/div[1]/div[2]/h2/a")).click();
+		//Click on one of Garden and Outdoor Appliances product photo
+		driver.findElement(By.xpath("//*[@id=\\\"main-content\\\"]/div[2]/div/section[1]/section[1]/div[2]/ul/li[1]/a/img")).click();
+		// click on Lawnmower Spares and Accessories 1st logo
+		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[1]/div/ul/li[1]/a")).click();
 		//compare price
-		String price=driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section[3]/div[2]/article[1]/div[2]/p[2]/span/span[2]")).getText();
+		String price=driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section/ul/li[1]/div[1]/div[3]/div/span")).getText();
 		Assert.assertEquals(price,"£4.49");
 	}
 	@AfterMethod

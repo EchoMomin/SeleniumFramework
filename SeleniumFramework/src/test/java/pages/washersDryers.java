@@ -29,7 +29,7 @@ public class washersDryers {
 
 	}
 
-
+	//Url Verification of washer page
 	@Test(priority=1)
 	public void washersUrl() throws InterruptedException {
 		//Click on Washers & Dryers tab
@@ -40,6 +40,7 @@ public class washersDryers {
 		Assert.assertEquals(URL, "https://www.espares.co.uk/browse/ca1236/washers-and-dryers" );	
 
 	}
+	//Category title Verification of washer page
 	@Test(priority=2)
 	public void washersCategroyTitle() throws InterruptedException {
 		//Click on Washers & Dryers tab
@@ -51,6 +52,8 @@ public class washersDryers {
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "Buy Tumble Dryer Spares, Parts & Accessories | Belts, Thermostats and More | eSpares | eSpares");
 	}
+
+	//Price Compare 
 	@Test(priority=3)
 	public void priceCompare() throws InterruptedException {
 		//Click on Washers & Dryers tab
