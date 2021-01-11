@@ -1,223 +1,93 @@
-
-
-
 package pages;
 import org.testng.annotations.Test;
-import java.util.concurrent.TimeUnit;
+import org.testng.asserts.SoftAssert;
 
-import org.openqa.selenium.Alert;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 
-public class homepageFooter {
+public class homepageFooter{
 	WebDriver driver;
 
 	@BeforeMethod
-	public void setUpTest() throws InterruptedException {
+	public void setUpTest() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Java\\chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().timeouts().pageLoadTimeout(30,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get("http://www.espares.co.uk?vwo_opt_out=1");
-		Thread.sleep(8000);
-		Alert alert = driver.switchTo().alert();
-		alert.accept();
+		driver.get("http://www.espares.co.uk");
+		//		Alert alert = driver.switchTo().alert();
+		//		alert.accept();
 		driver.findElement(By.id("btn-allow-all")).click();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
 
 	}
 
+	//Footer links Title print
+	@Test
+	public void footerLinkValidation() throws InterruptedException {
+		//Count total links in the homepage
+		System.out.println(driver.findElements(By.tagName("a")).size());
+		//Footer Links
+		WebElement footerDriver= driver.findElement(By.cssSelector(".footer-wrapper"));
+		System.out.println(footerDriver.findElements(By.tagName("a")).size());
+//		System.out.println(footerDriver.findElement(By.xpath("//*[@id=\"footer-collapse-3\"]/ul/li[1]/a")).getText());
+		String skipTagTitle = "Cookie Settings";
+		for (int i=1;i<footerDriver.findElements(By.tagName("a")).size();i++) {
+			String tagTitle = footerDriver.findElements(By.tagName("a")).get(i).getText();
+			if(!skipTagTitle.equals(tagTitle)) {
+				System.out.println(tagTitle + " -- test title from inside");
+				String clickonlinkTab=Keys.chord(Keys.CONTROL,Keys.ENTER);
+				footerDriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab);
+			}else {
+				System.out.println(tagTitle);	
+			}
+			Thread.sleep(2000L);
+		}
+		Set<String> abc=driver.getWindowHandles();
+		Iterator<String> it=abc.iterator();
 
-	//	Verify site title 
-	@Test(priority=1)
-	public void tronTitleVerification() {
-		String Title = driver.getTitle();
-		//System.out.println("Page title is: + Title");
-		Assert.assertEquals(Title,"eSpares - Spare Parts & Accessories for Electrical Appliances | eSpares");
+		while(it.hasNext())
+		{
+			System.out.println(driver.getTitle());
+			driver.switchTo().window(it.next());
+			Thread.sleep(3000L);
+
+		}
 	}
+	
+	@Test
+	public void linkCount() throws InterruptedException, IOException {
+		//Count total links in the homepage
+		System.out.println(driver.findElements(By.tagName("a")).size());
+		List<WebElement> links= driver.findElements(By.tagName("a"));
+		  SoftAssert a =new SoftAssert();
+
+		for(WebElement link : links){
+			String url= link.getAttribute("href");
+			HttpURLConnection   conn= (HttpURLConnection)new URL(url).openConnection();
+			conn.setRequestMethod("HEAD");
+			conn.connect();
+			int respCode = conn.getResponseCode();
+			System.out.println(respCode);
+			a.assertTrue(respCode<400, "The link with Text"+link.getText()+" is broken with code" +respCode);
+}
+		   a.assertAll();
 
 
-
-	//	Footer part check
-	//	contact link verification
-	@Test(priority=2)
-	public void contact() {
-		driver.findElement(By.linkText("Contact Us")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/contact" );
-	}
-
-	//	aboutDelivery link verification
-	@Test(priority=3)
-	public void aboutDelivery() throws InterruptedException {
-		Thread.sleep(8000);
-		driver.findElement(By.xpath("//*[@id=\"footer-collapse-1\"]/ul/li[2]/a")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/aboutdelivery" );
-	}
-
-	//	returnsRefunds link verification
-	@Test(priority=4)
-	public void returnsRefunds() throws InterruptedException {
-		Thread.sleep(8000);
-		driver.findElement(By.linkText("Returns & Refunds")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/returns" );
-	}
-
-	//adviceCentre link verification
-	@Test(priority=5)
-	public void advice() {
-		driver.findElement(By.linkText("Advice Centre")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/advice" );
-	}
-
-
-	//userManuals link verification
-	@Test(priority=6)
-	public void userManuals() {
-		driver.findElement(By.linkText("User Manuals")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/usermanuals" );
-	}
-
-
-	//modelNumberFinder link verification
-	@Test(priority=7)
-	public void modelNumberFinder() {
-		driver.findElement(By.xpath("//*[@id=\"footer-collapse-2\"]/ul/li[3]/a")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/findingmodelnumbers" );
-	}
-
-
-	//	helpMeFindMyPart link verification
-	@Test(priority=8)
-	public void helpMeFindMyPart() {
-		driver.findElement(By.linkText("Help Me Find My Part")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/contact/sales" );
-	}
-
-
-
-	//	cookieSettings link verification
-	@Test(priority=9)
-	public void cookieSettings() {
-		driver.findElement(By.linkText("Cookie Settings")).click();
-
-	}
-
-
-	//	privacyPolicy link verification
-	@Test(priority=10)
-	public void privacyPolicy() {
-		driver.findElement(By.linkText("Privacy Policy")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/privacy" );
-	}
-
-
-
-	//	termsConditions link verification
-	@Test(priority=11)
-	public void termsConditions() {
-		driver.findElement(By.xpath("//*[@id=\"footer-collapse-3\"]/ul/li[3]/a")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/terms" );
-	}
-
-
-	//	siteMap link verification
-	@Test(priority=12)
-	public void siteMap() {
-		driver.findElement(By.linkText("Site Map")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/sitemap" );
-	}
-
-
-	//	everythingYouEver link verification
-	@Test(priority=13)
-	public void everythingYouEver() {
-		driver.findElement(By.xpath("//*[@id=\"footer-collapse-4\"]/p/a")).click();
-		String URL = driver.getCurrentUrl();
-		Assert.assertEquals(URL, "https://www.espares.co.uk/aboutus" );
-	}
-
-	//	FB link verification
-	@Test(priority=14)
-	public void fb() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[1]/a")).click();
-		//		String URL = driver.getCurrentUrl();
-		//		Assert.assertEquals(URL, "https://www.facebook.com/fixityourself" );
-	}
-
-
-	//	twitter link verification
-	@Test(priority=15)
-	public void twitter() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[2]/a")).click();
-		//		String URL = driver.getCurrentUrl();
-		//		Assert.assertEquals(URL, "https://twitter.com/espares" );
-	}
-
-	//	youTube link verification
-	@Test(priority=16)
-	public void youTube() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[3]/a")).click();
-		//		String URL = driver.getCurrentUrl();
-		//		Assert.assertEquals(URL, "https://www.youtube.com/user/eSparesVideo" );
-	}
-
-	//	blog link verification
-	@Test(priority=17)
-	public void blog() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[1]/div[1]/div/div/ul/li[4]/a")).click();
-		//		String URL = driver.getCurrentUrl();
-		//		Assert.assertEquals(URL, "https://blog.espares.co.uk/" );
-	}
-	//	Ireland's site link verification
-	@Test(priority=18)
-	public void ireland() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[1]/img")).click();
-	}
-	//	Austria's Site link verification
-	@Test(priority=19)
-	public void austria() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[2]/img")).click();
-	}
-
-	//	France's Site link verification
-	@Test(priority=20)
-	public void france() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[3]/img")).click();
-	}
-
-	//	Germany's Site link verification
-	@Test(priority=21)
-	public void germany() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[4]/img")).click();
-	}
-
-	//	Italy's Site link verification
-	@Test(priority=22)
-	public void italy() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[5]/img")).click();
-	}
-
-	//	Spain's Site link verification
-	@Test(priority=23)
-	public void spain() {
-		driver.findElement(By.xpath("/html/body/div[4]/footer/div[2]/div[2]/div/a[6]/img")).click();
 	}
 
 	@AfterMethod

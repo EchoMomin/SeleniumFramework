@@ -56,7 +56,7 @@ public class manageCookies {
 		String cookiesFunctional=src.substring(cf,cf+24);
 		cookiesFunctional=cookiesFunctional.replace("\"", "");
 		System.out.println(cookiesFunctional +" cf");
-		Assert.assertEquals(cookiesFunctional,"cookies_functional:false");
+		Assert.assertEquals(cookiesFunctional,"cookies_functional:true");
 		
 		int cpa=src.indexOf("cookies_performance_analytic");
 		String cookiesPerformanceAnalytic=src.substring(cpa,cpa+35);
@@ -65,6 +65,22 @@ public class manageCookies {
 		Assert.assertEquals(cookiesPerformanceAnalytic,"cookies_performance_analytics:true");
 	}
 
+	//VWO 
+		@Test(priority=2)
+		public void PerformanceOn() throws InterruptedException {
+			//Click on Manage cookies tab
+			driver.findElement(By.xpath("/html/body/div[6]/div/div/a[1]")).click();
+			Thread.sleep(8000);
+			//Performance/Analytics toggle on
+			driver.findElement(By.xpath("//*[@id=\"cookie-control-form\"]/div[2]/label/span[2]")).click();
+			//Functional toggle on
+			driver.findElement(By.xpath("//*[@id=\"cookie-control-form\"]/div[3]/label/span[2]")).click();
+			//Marketing/Targeting toggle on
+			driver.findElement(By.xpath("//*[@id=\"cookie-control-form\"]/div[4]/label/span[2]")).click();
+			//save
+			driver.findElement(By.xpath("//*[@id=\"cookie-control-form\"]/div[5]/button")).click();
+			
+		}
 
 	@AfterMethod
 	public void tearDown() {

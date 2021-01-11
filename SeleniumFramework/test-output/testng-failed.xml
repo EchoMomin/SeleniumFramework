@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pages.manageCookies">
+      <class name="pages.homepageFooter">
         <methods>
           <include name="tearDown"/>
-          <include name="allOn"/>
+          <include name="linkCount"/>
           <include name="setUpTest"/>
         </methods>
-      </class> <!-- pages.manageCookies -->
+      </class> <!-- pages.homepageFooter -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

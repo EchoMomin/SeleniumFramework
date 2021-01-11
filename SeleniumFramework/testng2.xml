@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="pages.sound"/>
+      <class name="pages.basketPage"/>
+      <class name="pages.checkOut"/>
+      <class name="pages.homePage"/>
+      <class name="pages.tronProductPage"/>
+      <class name="pages.vacuums"/>
+      <class name="pages.basketOverlay"/>
+      <class name="pages.homepageBody"/>
+      <class name="pages.homepageFooter"/>
+      <class name="pages.plpPage"/>
+      <class name="pages.garden"/>
+      <class name="pages.homeOffice"/>
+      <class name="pages.washersDryers"/>
+      <class name="pages.allBrands"/>
+      <class name="pages.questions"/>
+      <class name="pages.offersPage"/>
+      <class name="pages.ordersPage"/>
+      <class name="pages.homepage_backups"/>
+      <class name="pages.homePageHeaderTest"/>
+      <class name="pages.cleaning"/>
+      <class name="pages.manageCookies"/>
+      <class name="pages.Tron_Homepage"/>
+      <class name="pages.kitchenAppliances"/>
+      <class name="pages.productPage"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
