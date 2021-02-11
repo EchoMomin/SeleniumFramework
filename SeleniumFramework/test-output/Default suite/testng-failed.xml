@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pages.homepageFooter">
+      <class name="pages.eSparesNews">
         <methods>
           <include name="tearDown"/>
-          <include name="linkCount"/>
+          <include name="newsForm"/>
           <include name="setUpTest"/>
         </methods>
-      </class> <!-- pages.homepageFooter -->
+      </class> <!-- pages.eSparesNews -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

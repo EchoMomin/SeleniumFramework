@@ -23,7 +23,7 @@ public class ordersPage {
 		Thread.sleep(8000);
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
-		//		driver.findElement(By.id("btn-allow-all")).click();
+		driver.findElement(By.id("btn-allow-all")).click();
 
 	}
 
@@ -197,8 +197,8 @@ public class ordersPage {
 		//save my password
 		driver.findElement(By.xpath("//*[@id=\"main-content\"]/div[2]/div/section/form/div[4]/div/button")).click();
 		//Assert title with order number
-//		String URL = driver.getCurrentUrl();
-//		Assert.assertEquals(URL, "https://www.espares.co.uk/account/logon" );
+		//		String URL = driver.getCurrentUrl();
+		//		Assert.assertEquals(URL, "https://www.espares.co.uk/account/logon" );
 	}
 	//View your orders
 	@Test(priority=9)

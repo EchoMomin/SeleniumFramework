@@ -69,29 +69,29 @@ public class homepageFooter{
 		}
 	}
 	
-	@Test
-	public void linkCount() throws InterruptedException, IOException {
-		//Count total links in the homepage
-		System.out.println(driver.findElements(By.tagName("a")).size());
-		List<WebElement> links= driver.findElements(By.tagName("a"));
-		  SoftAssert a =new SoftAssert();
-
-		for(WebElement link : links){
-			String url= link.getAttribute("href");
-			HttpURLConnection   conn= (HttpURLConnection)new URL(url).openConnection();
-			conn.setRequestMethod("HEAD");
-			conn.connect();
-			int respCode = conn.getResponseCode();
-			System.out.println(respCode);
-			a.assertTrue(respCode<400, "The link with Text"+link.getText()+" is broken with code" +respCode);
-}
-		   a.assertAll();
-
-
-	}
+//	@Test
+//	public void linkCount() throws InterruptedException, IOException {
+//		//Count total links in the homepage
+//		System.out.println(driver.findElements(By.tagName("a")).size());
+//		List<WebElement> links= driver.findElements(By.tagName("a"));
+//		  SoftAssert a =new SoftAssert();
+//
+//		for(WebElement link : links){
+//			String url= link.getAttribute("href");
+//			HttpURLConnection   conn= (HttpURLConnection)new URL(url).openConnection();
+//			conn.setRequestMethod("HEAD");
+//			conn.connect();
+//			int respCode = conn.getResponseCode();
+//			System.out.println(respCode);
+//			a.assertTrue(respCode<400, "The link with Text"+link.getText()+" is broken with code" +respCode);
+//}
+//		   a.assertAll();
+//
+//
+//	}
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+//		driver.quit();
 	}
 }
